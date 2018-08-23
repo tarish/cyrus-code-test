@@ -15,12 +15,4 @@ public class RecordDisplayServiceTest {
     public void setUp() {
         displayService = new RecordDisplayService();
     }
-
-    @Test
-    public void displayARecordInSpecificFieldOrder() {
-        Record record = new Record("Halfelf", "Grace", "L", "F", "white", "1/23/1913");
-        String result = displayService.display(record);
-
-        assertThat(result, is("Halfelf Grace F 1/23/1913 white"));
-    }
 }
