@@ -68,4 +68,11 @@ public class Record {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public String forDisplay() {
+        return String.format("%s %s %s %s %s",
+                getLastName(), getFirstName(), getGender(),
+                getDateOfBirth(), getFavoriteColor()
+        );
+    }
 }
