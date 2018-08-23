@@ -11,6 +11,6 @@ public class RecordTest {
     @Test
     public void displaysARecordInSpecificFieldOrder() {
         Record record = new Record("Halfelf", "Grace", "L", "F", "white", "1/23/1913");
-        assertThat(record.getForDisplay(), is("Halfelf Grace F 1/23/1913 white"));
+        assertThat(record.getForDisplay(), is("Halfelf\tGrace\tF\t1/23/1913\twhite"));
     }
 }

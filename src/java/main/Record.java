@@ -70,7 +70,7 @@ public class Record {
     }
 
     public String getForDisplay() {
-        return String.format("%s %s %s %s %s",
+        return String.format("%s\t%s\t%s\t%s\t%s",
                 getLastName(), getFirstName(), getGender(),
                 getDateOfBirth(), getFavoriteColor()
         );
