@@ -3,6 +3,6 @@
  */
 public class RecordDisplayService {
     public String display(Record record) {
-        return record.forDisplay();
+        return record.getForDisplay();
     }
 }
