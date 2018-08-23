@@ -1,7 +1,5 @@
 package main.java;
 
-import java.util.Date;
-
 /**
  * Created by Tarish Rhees on 8/22/2018.
  */
@@ -11,18 +9,18 @@ public class Record {
     private String middleInitial;
     private String gender;
     private String favoriteColor;
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     public Record() {
     }
 
-    public Record(String lastName, String firstName, String middleInitial, String gender, String favoriteColor, Date dateOfBirth) {
+    public Record(String lastName, String firstName, String middleInitial, String gender, String favoriteColor, String dateOfBirth) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.middleInitial = middleInitial;
         this.gender = gender;
         this.favoriteColor = favoriteColor;
-        this.dateOfBirth = dateOfBirth;
+        setDateOfBirth(dateOfBirth);
 
     }
 
@@ -66,11 +64,23 @@ public class Record {
         this.favoriteColor = favoriteColor;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleInitial='" + middleInitial + '\'' +
+                ", gender='" + gender + '\'' +
+                ", favoriteColor='" + favoriteColor + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
     }
 }
