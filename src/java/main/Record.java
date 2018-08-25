@@ -106,4 +106,11 @@ public class Record {
         result = 31 * result + (getDateOfBirth() != null ? getDateOfBirth().hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Last: %s; First: %s; Middle: %s; Gender: %s; Color: %s; DOB: %s",
+                getLastName(), getFirstName(), getMiddleInitial(), getGender(), getFavoriteColor(), getDateOfBirth()
+        );
+    }
 }
