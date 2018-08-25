@@ -13,60 +13,66 @@ public class Record {
     }
 
     public Record(String lastName, String firstName, String middleInitial, String gender, String favoriteColor, String dateOfBirth) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.middleInitial = middleInitial;
-        this.gender = gender;
-        this.favoriteColor = favoriteColor;
-        this.dateOfBirth = dateOfBirth;
+        setLastName(lastName);
+        setFirstName(firstName);
+        setMiddleInitial(middleInitial);
+        setGender(gender);
+        setFavoriteColor(favoriteColor);
+        setDateOfBirth(dateOfBirth);
     }
 
     public String getLastName() {
-        return lastName != null ? lastName : "";
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if (lastName == null) lastName = "";
+        this.lastName = lastName.trim();
     }
 
     public String getFirstName() {
-        return firstName != null ? firstName : "";
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if (firstName == null) firstName = "";
+        this.firstName = firstName.trim();
     }
 
     public String getMiddleInitial() {
-        return middleInitial != null ? middleInitial : "";
+        return middleInitial;
     }
 
     public void setMiddleInitial(String middleInitial) {
-        this.middleInitial = middleInitial;
+        if (middleInitial == null) middleInitial = "";
+        this.middleInitial = middleInitial.trim();
     }
 
     public String getGender() {
-        return gender != null ? gender : "";
+        return gender;
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        if (gender == null) gender = "";
+        this.gender = gender.trim();
     }
 
     public String getFavoriteColor() {
-        return favoriteColor != null ? favoriteColor : "";
+        return favoriteColor;
     }
 
     public void setFavoriteColor(String favoriteColor) {
-        this.favoriteColor = favoriteColor;
+        if (favoriteColor == null) favoriteColor = "";
+        this.favoriteColor = favoriteColor.trim();
     }
 
     public String getDateOfBirth() {
-        return dateOfBirth != null ? dateOfBirth : "";
+        return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+        if (dateOfBirth == null) dateOfBirth = "";
+        this.dateOfBirth = dateOfBirth.trim();
     }
 
     public String getForDisplay() {
