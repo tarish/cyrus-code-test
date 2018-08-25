@@ -1,3 +1,10 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by Tarish Rhees on 8/24/2018.
  */
@@ -17,5 +24,20 @@ public class FileParser {
         record.setFavoriteColor(data[4]);
         record.setDateOfBirth(data[5]);
         return record;
+    }
+
+    public Set<Record> parseFile(String inputPath, String delimeter) throws IOException {
+        Set<Record> records = new HashSet<>();
+
+        FileReader file = new FileReader(inputPath);
+        BufferedReader reader = new BufferedReader(file);
+
+        String line;
+        while ((line = reader.readLine()) != null) {
+            records.add(parseLine(line, delimeter));
+        }
+        reader.close();
+
+        return records;
     }
 }
