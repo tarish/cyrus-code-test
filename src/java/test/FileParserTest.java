@@ -14,8 +14,13 @@ public class FileParserTest {
 
         FileParser parser = new FileParser();
         String line = "Bouillon | Francis | G | M | Blue | 6-3-1975";
-        Record record = parser.parseLine(line);
+        Record record = parser.parseLine(line, "\\|");
 
         assertThat(record, equalTo(expected));
+    }
+
+    @Test
+    public void readsFileLinesIntoRecords() {
+
     }
 }

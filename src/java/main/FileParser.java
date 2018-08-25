@@ -2,12 +2,12 @@
  * Created by Tarish Rhees on 8/24/2018.
  */
 public class FileParser {
-    public Record parseLine(String line) {
+    public Record parseLine(String line, String delimeter) {
         if (line.isEmpty()) {
             return null;
         }
 
-        String[] data = line.split("\\|");
+        String[] data = line.split(delimeter);
 
         Record record = new Record();
         record.setLastName(data[0]);
