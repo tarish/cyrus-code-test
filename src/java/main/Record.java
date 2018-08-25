@@ -22,7 +22,7 @@ public class Record {
     }
 
     public String getLastName() {
-        return lastName;
+        return lastName != null ? lastName : "";
     }
 
     public void setLastName(String lastName) {
@@ -30,7 +30,7 @@ public class Record {
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstName != null ? firstName : "";
     }
 
     public void setFirstName(String firstName) {
@@ -38,7 +38,7 @@ public class Record {
     }
 
     public String getMiddleInitial() {
-        return middleInitial;
+        return middleInitial != null ? middleInitial : "";
     }
 
     public void setMiddleInitial(String middleInitial) {
@@ -46,7 +46,7 @@ public class Record {
     }
 
     public String getGender() {
-        return gender;
+        return gender != null ? gender : "";
     }
 
     public void setGender(String gender) {
@@ -54,7 +54,7 @@ public class Record {
     }
 
     public String getFavoriteColor() {
-        return favoriteColor;
+        return favoriteColor != null ? favoriteColor : "";
     }
 
     public void setFavoriteColor(String favoriteColor) {
@@ -62,7 +62,7 @@ public class Record {
     }
 
     public String getDateOfBirth() {
-        return dateOfBirth;
+        return dateOfBirth != null ? dateOfBirth : "";
     }
 
     public void setDateOfBirth(String dateOfBirth) {
@@ -74,5 +74,36 @@ public class Record {
                 getLastName(), getFirstName(), getGender(),
                 getDateOfBirth(), getFavoriteColor()
         );
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Record record = (Record) o;
+
+        if (getLastName() != null ? !getLastName().equals(record.getLastName()) : record.getLastName() != null)
+            return false;
+        if (getFirstName() != null ? !getFirstName().equals(record.getFirstName()) : record.getFirstName() != null)
+            return false;
+        if (getMiddleInitial() != null ? !getMiddleInitial().equals(record.getMiddleInitial()) : record.getMiddleInitial() != null)
+            return false;
+        if (getGender() != null ? !getGender().equals(record.getGender()) : record.getGender() != null) return false;
+        if (getFavoriteColor() != null ? !getFavoriteColor().equals(record.getFavoriteColor()) : record.getFavoriteColor() != null)
+            return false;
+        return getDateOfBirth() != null ? getDateOfBirth().equals(record.getDateOfBirth()) : record.getDateOfBirth() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getLastName() != null ? getLastName().hashCode() : 0;
+        result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
+        result = 31 * result + (getMiddleInitial() != null ? getMiddleInitial().hashCode() : 0);
+        result = 31 * result + (getGender() != null ? getGender().hashCode() : 0);
+        result = 31 * result + (getFavoriteColor() != null ? getFavoriteColor().hashCode() : 0);
+        result = 31 * result + (getDateOfBirth() != null ? getDateOfBirth().hashCode() : 0);
+        return result;
     }
 }
