@@ -1,7 +1,6 @@
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
-import org.testng.FileAssert;
 
 import java.io.File;
 import java.io.IOException;
