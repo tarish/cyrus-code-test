@@ -44,7 +44,7 @@ public class RecordSetTest {
     }
 
     @Test
-    public void providesSetOfRecordsSortedByLastName() {
+    public void providesSetOfRecordsSortedByLastNameDescending() {
         Record smith = new Record("Smith", "Lyn", "L", "F", "grey", "02-02");
         Record hoschler = new Record("Hoschler", "Louise", "M", "F", "blue", "05-14");
         Record rhees = new Record("Rhees", "Tarish", "J", "F", "blue", "05-03");
@@ -61,13 +61,13 @@ public class RecordSetTest {
         assertThat(iterator.next(), is(hoschler));
         assertThat(iterator.next(), is(rhees));
 
-        //Check sorted records are in expected order
+        //Check sorted records are in descending order
         Set<Record> sortedRecords = recordSet.getRecordsSortedByLastName();
         assertThat(sortedRecords.size(), is(3));
 
         iterator = sortedRecords.iterator();
-        assertThat(iterator.next(), is(hoschler));
-        assertThat(iterator.next(), is(rhees));
         assertThat(iterator.next(), is(smith));
+        assertThat(iterator.next(), is(rhees));
+        assertThat(iterator.next(), is(hoschler));
     }
 }

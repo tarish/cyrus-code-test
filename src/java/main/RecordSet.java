@@ -22,7 +22,7 @@ public class RecordSet {
 
     public Set<Record> getRecordsSortedByLastName() {
         TreeSet<Record> sortedRecords = new TreeSet<>(
-                Comparator.comparing(Record::getLastName)
+                Comparator.comparing(Record::getLastName).reversed()
         );
         for (Record record : records) {
             sortedRecords.add(record);

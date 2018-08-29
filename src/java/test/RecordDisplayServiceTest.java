@@ -63,10 +63,10 @@ public class RecordDisplayServiceTest {
         records.add(LAMIERINA_WARRIOR);
         records.add(LUNARIENNE_GNOME);
 
+        //TODO: Improve! Make into actual file rather than just duplicating the underlying code.
         RecordSet recordSet = new RecordSet();
         recordSet.setRecords(records);
         File expected = displayService.displayAsFile(recordSet.getRecordsSortedByLastName(), "resources\\expected.txt");
-
 
         File result = displayService.displayRecordsSortedByLastName(records, "resources\\records.txt");
 
