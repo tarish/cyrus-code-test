@@ -26,4 +26,10 @@ public class RecordDisplayService {
     public void displayToConsole(Set<Record> records) {
         System.out.println(getRecordsForDisplay(records));
     }
+
+    public File displayRecordsSortedByLastName(Set<Record> records, String outputPath) throws IOException {
+        RecordSet recordSet = new RecordSet();
+        recordSet.setRecords(records);
+        return displayAsFile(recordSet.getRecordsSortedByLastName(), outputPath);
+    }
 }

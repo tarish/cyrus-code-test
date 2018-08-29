@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +16,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Created by Tarish Rhees on 8/23/2018.
  */
 public class RecordDisplayServiceTest {
+    private final Record GRACE_HALFELF = new Record("Halfelf", "Grace", "L", "F", "black", "1/23/1913");
+    private final Record LUNARIENNE_GNOME = new Record("Gnome", "Lunarienne", "", "F", "white", "5/3/2004");
+    private final Record LAMIERINA_WARRIOR = new Record("Warrior", "Lamierina", "S", "F", "red", "8/31/2005");
+
     //Object Under Test
     private RecordDisplayService displayService;
 
@@ -24,12 +30,10 @@ public class RecordDisplayServiceTest {
 
     @Test
     public void getsSetOfRecordsForDisplay() {
-        Record graceHalfelf = new Record("Halfelf", "Grace", "L", "F", "black", "1/23/1913");
-        Record lunarienneGnome = new Record("Gnome", "Lunarienne", "", "F", "white", "5/3/2004");
 
         Set<Record> records = new HashSet<>();
-        records.add(graceHalfelf);
-        records.add(lunarienneGnome);
+        records.add(GRACE_HALFELF);
+        records.add(LUNARIENNE_GNOME);
 
         assertThat(
                 displayService.getRecordsForDisplay(records),
@@ -39,12 +43,9 @@ public class RecordDisplayServiceTest {
 
     @Test
     public void displaysSetOfRecordsAsFile() throws IOException {
-        Record graceHalfelf = new Record("Halfelf", "Grace", "L", "F", "black", "1/23/1913");
-        Record lunarienneGnome = new Record("Gnome", "Lunarienne", "", "F", "white", "5/3/2004");
-
         Set<Record> records = new HashSet<>();
-        records.add(graceHalfelf);
-        records.add(lunarienneGnome);
+        records.add(GRACE_HALFELF);
+        records.add(LUNARIENNE_GNOME);
 
         File result = displayService.displayAsFile(records, "resources\\records.txt");
 
@@ -53,5 +54,28 @@ public class RecordDisplayServiceTest {
         assertThat(result.length(), is(123L));
 
         result.deleteOnExit();
+    }
+
+    @Test
+    public void displaySetOfRecordsSortedByLastName() throws IOException {
+        Set<Record> records = new HashSet<>();
+        records.add(GRACE_HALFELF);
+        records.add(LAMIERINA_WARRIOR);
+        records.add(LUNARIENNE_GNOME);
+
+        RecordSet recordSet = new RecordSet();
+        recordSet.setRecords(records);
+        File expected = displayService.displayAsFile(recordSet.getRecordsSortedByLastName(), "resources\\expected.txt");
+
+
+        File result = displayService.displayRecordsSortedByLastName(records, "resources\\records.txt");
+
+        byte[] resultArray = Files.readAllBytes(result.toPath());
+        byte[] expectedArray = Files.readAllBytes(expected.toPath());
+
+        assertThat(resultArray, is(expectedArray));
+
+        result.deleteOnExit();
+        expected.deleteOnExit();
     }
 }
