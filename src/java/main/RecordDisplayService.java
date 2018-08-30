@@ -27,9 +27,9 @@ public class RecordDisplayService {
         System.out.println(getRecordsForDisplay(records));
     }
 
-    public File displayRecordsSortedByLastName(Set<Record> records, String outputPath) throws IOException {
+    public File displayRecordsSortedByDescendingLastName(Set<Record> records, String outputPath) throws IOException {
         RecordSet recordSet = new RecordSet();
         recordSet.setRecords(records);
-        return displayAsFile(recordSet.getRecordsSortedByLastName(), outputPath);
+        return displayAsFile(recordSet.getRecordsSortedByLastNameDescending(), outputPath);
     }
 }

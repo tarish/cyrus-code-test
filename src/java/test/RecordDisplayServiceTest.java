@@ -1,11 +1,9 @@
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -66,9 +64,9 @@ public class RecordDisplayServiceTest {
         //TODO: Improve! Make into actual file rather than just duplicating the underlying code.
         RecordSet recordSet = new RecordSet();
         recordSet.setRecords(records);
-        File expected = displayService.displayAsFile(recordSet.getRecordsSortedByLastName(), "resources\\expected.txt");
+        File expected = displayService.displayAsFile(recordSet.getRecordsSortedByLastNameDescending(), "resources\\expected.txt");
 
-        File result = displayService.displayRecordsSortedByLastName(records, "resources\\records.txt");
+        File result = displayService.displayRecordsSortedByDescendingLastName(records, "resources\\records.txt");
 
         byte[] resultArray = Files.readAllBytes(result.toPath());
         byte[] expectedArray = Files.readAllBytes(expected.toPath());

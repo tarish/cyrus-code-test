@@ -20,9 +20,33 @@ public class RecordSet {
         this.records = records;
     }
 
-    public Set<Record> getRecordsSortedByLastName() {
+    public Set<Record> getRecordsSortedByLastNameAscending() {
+        LastNameComparator nameComparator = new LastNameComparator();
         TreeSet<Record> sortedRecords = new TreeSet<>(
-                Comparator.comparing(Record::getLastName).reversed()
+                nameComparator
+        );
+
+        for (Record record : records) {
+            sortedRecords.add(record);
+        }
+        return sortedRecords;
+    }
+
+    public Set<Record> getRecordsSortedByLastNameDescending() {
+        LastNameComparator nameComparator = new LastNameComparator();
+        TreeSet<Record> sortedRecords = new TreeSet<>(
+                nameComparator.reversed()
+        );
+
+        for (Record record : records) {
+            sortedRecords.add(record);
+        }
+        return sortedRecords;
+    }
+
+    public Set<Record> getRecordsSortedByGender() {
+        TreeSet<Record> sortedRecords = new TreeSet<>(
+                Comparator.comparing(Record::getGender)
         );
         for (Record record : records) {
             sortedRecords.add(record);
