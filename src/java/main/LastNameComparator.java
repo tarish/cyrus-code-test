@@ -6,6 +6,7 @@ import java.util.Comparator;
 public class LastNameComparator implements Comparator<Record> {
     @Override
     public int compare(Record r1, Record r2) {
+        //NOTE: Could have extracted a Name class, but comparing Record allows for future comparison growth!!!
         String r1LastName = r1.getLastName();
         String r2LastName = r2.getLastName();
 
