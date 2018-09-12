@@ -6,7 +6,7 @@ import java.util.Set;
  */
 public class RecordDisplayService {
     public String getRecordsForDisplay(Set<Record> records) {
-        String result = "Last Name\tFirst Name\tGender\tDate of Birth\tFavorite Color\n";
+        String result = "Last Name\t\t|\t\tFirst Name\t\t|\t\tGender\t\t|\t\tDate of Birth\t\t|\t\tFavorite Color\n";
 
         for (Record record : records) {
             result += record.getForDisplay();

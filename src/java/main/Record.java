@@ -76,7 +76,7 @@ public class Record {
     }
 
     public String getForDisplay() {
-        return String.format("%s\t%s\t%s\t%s\t%s",
+        return String.format("%s\t\t|\t\t%s\t\t|\t\t%s\t\t|\t\t%s\t\t|\t\t%s",
                 getLastName(), getFirstName(), getGender(),
                 getDateOfBirth(), getFavoriteColor()
         );

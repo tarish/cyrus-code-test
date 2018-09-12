@@ -33,9 +33,13 @@ public class RecordDisplayServiceTest {
         records.add(GRACE_HALFELF);
         records.add(LUNARIENNE_GNOME);
 
+//        displayService.displayToConsole(records);
+
         assertThat(
                 displayService.getRecordsForDisplay(records),
-                is("Last Name\tFirst Name\tGender\tDate of Birth\tFavorite Color\nHalfelf\tGrace\tF\t1/23/1913\tblack\nGnome\tLunarienne\tF\t5/3/2004\twhite\n")
+                is("Last Name\t\t|\t\tFirst Name\t\t|\t\tGender\t\t|\t\tDate of Birth\t\t|\t\tFavorite Color\n" +
+                        "Halfelf\t\t|\t\tGrace\t\t|\t\tF\t\t|\t\t1/23/1913\t\t|\t\tblack\n" +
+                        "Gnome\t\t|\t\tLunarienne\t\t|\t\tF\t\t|\t\t5/3/2004\t\t|\t\twhite\n")
         );
     }
 
@@ -49,7 +53,7 @@ public class RecordDisplayServiceTest {
 
         assertThat(result.exists(), is(true));
         assertThat(result.getPath(), is("resources\\records.txt"));
-        assertThat(result.length(), is(123L));
+        assertThat(result.length(), is(171L));
 
         result.deleteOnExit();
     }
