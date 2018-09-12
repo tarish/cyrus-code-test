@@ -27,7 +27,7 @@ You may assume that the delimiters (commas, pipes and spaces) do not appear anyw
 
 ## DISPLAY REQUIREMENTS
 
-- Create and display 3 different views of the recordset (see a sample here):
+- Create and display 3 different views of the recordset (missing sample here):
 	- Output 1 – sorted by gender (females before males) then by last name ascending.
 	- Output 2 – sorted by birth date, ascending.
 	- Output 3 – sorted by last name, descending.
@@ -43,3 +43,7 @@ Tell us which script or rake task to run in order to produce the desired output 
 Specify what version of Ruby you’re using. You may use any official release of the CRuby interpreter.
 
 You may use the core and the standard library, but no gems, except Rake. If you use Rake, specify the version. Solutions as well as questions and comments should be sent to us at codesubmissions@cyrusinnovation.com.
+
+## ASSUMPTIONS
+
+- TODO
