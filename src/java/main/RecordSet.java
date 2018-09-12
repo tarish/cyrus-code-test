@@ -43,14 +43,4 @@ public class RecordSet {
         }
         return sortedRecords;
     }
-
-    public Set<Record> getRecordsSortedByGender() {
-        TreeSet<Record> sortedRecords = new TreeSet<>(
-                Comparator.comparing(Record::getGender)
-        );
-        for (Record record : records) {
-            sortedRecords.add(record);
-        }
-        return sortedRecords;
-    }
 }
