@@ -10,21 +10,21 @@ public class LastNameComparator implements Comparator<Record> {
         String r1LastName = r1.getLastName();
         String r2LastName = r2.getLastName();
 
-        int lastNameEquality = r1LastName.compareToIgnoreCase(r2LastName);
-        //If last name matches
-        if (lastNameEquality == 0) {
+        int lastNameMatch = r1LastName.compareToIgnoreCase(r2LastName);
+        //If last name matches, check first name
+        if (lastNameMatch == 0) {
             String r1FirstName = r1.getFirstName();
             String r2FirstName = r2.getFirstName();
 
-            int firstNameEquality = r1FirstName.compareToIgnoreCase(r2FirstName);
-            //If first name matches
-            if (firstNameEquality == 0) {
+            int firstNameMatch = r1FirstName.compareToIgnoreCase(r2FirstName);
+            //If first name matches, check middle initial
+            if (firstNameMatch == 0) {
                 String r1MiddleInit = r1.getMiddleInitial();
                 String r2MiddleInit = r2.getMiddleInitial();
                 return r1MiddleInit.compareToIgnoreCase(r2MiddleInit);
             }
-            return firstNameEquality;
+            return firstNameMatch;
         }
-        return lastNameEquality;
+        return lastNameMatch;
     }
 }
