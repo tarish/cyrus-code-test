@@ -1,4 +1,3 @@
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +25,7 @@ public class FileParserTest {
         Record expected = new Record("Bouillon", "Francis", "G", "M", "Blue", "6-3-1975");
 
         String line = "Bouillon | Francis | G | M | Blue | 6-3-1975";
-        Record record = parser.parseLine(line, "\\|");
+        Record record = parser.createRecordFrom(line, "\\|");
 
         assertThat(record, equalTo(expected));
     }
