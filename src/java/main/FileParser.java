@@ -29,16 +29,24 @@ public class FileParser {
             record.setFavoriteColor(data[3]);
             record.setDateOfBirth(data[4]);
         }
+        if ("\\s".equalsIgnoreCase(delimeter)) {
+            record.setLastName(data[0]);
+            record.setFirstName(data[1]);
+            record.setMiddleInitial(data[2]);
+            record.setGender(data[3]);
+            record.setDateOfBirth(data[4]);
+            record.setFavoriteColor(data[5]);
+        }
         return record;
     }
 
     private String[] parseLine(String line, String delimeter) {
-        if (line.isEmpty()) {
+        if (line == null || line.isEmpty()) {
             return null;
         }
+        //TODO: Throw exception if delimeter is null or empty! For now, assume it will always exist!
 
-        String[] data = line.split(delimeter);
-        return data;
+        return line.split(delimeter);
     }
 
     public Set<Record> parseFile(String inputPath, String delimeter) throws IOException {

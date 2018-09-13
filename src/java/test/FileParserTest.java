@@ -41,6 +41,21 @@ public class FileParserTest {
     }
 
     @Test
+    public void parsesASpaceDelimitedLineIntoARecordObject() {
+        Record expected = new Record("Hingis", "Martina", "M", "F", "Green", "4-2-1979");
+
+        String line = "Hingis Martina M F 4-2-1979 Green";
+        Record record = parser.createRecordFrom(line, "\\s");
+
+        assertThat(record, equalTo(expected));
+    }
+
+//    @Test
+    public void parsesAMultipleTypesOfSpaceDelimitedLineIntoARecordObject() {
+        //TODO: Find a way to test for multiple spaces and/or tabs
+    }
+
+    @Test
     public void readsFileLinesIntoRecords() throws IOException {
         Record bouillon = new Record("Bouillon", "Francis", "G", "M", "Blue", "6-3-1975");
         Record smith = new Record("Smith", "Steve", "D", "M", "Red", "3-3-1985");
