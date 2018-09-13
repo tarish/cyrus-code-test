@@ -54,7 +54,8 @@ public class Record {
 
     public void setGender(String gender) {
         if (gender == null) gender = "";
-        this.gender = gender.trim();
+        String trimmed = gender.trim();
+        this.gender = trimmed.isEmpty() ? trimmed : String.valueOf(trimmed.charAt(0));
     }
 
     public String getFavoriteColor() {

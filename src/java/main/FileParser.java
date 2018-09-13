@@ -21,6 +21,14 @@ public class FileParser {
             record.setFavoriteColor(data[4]);
             record.setDateOfBirth(data[5]);
         }
+        if (",".equalsIgnoreCase(delimeter)) {
+            record.setLastName(data[0]);
+            record.setFirstName(data[1]);
+            record.setMiddleInitial(null);
+            record.setGender(data[2]);
+            record.setFavoriteColor(data[3]);
+            record.setDateOfBirth(data[4]);
+        }
         return record;
     }
 

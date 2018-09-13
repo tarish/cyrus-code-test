@@ -21,11 +21,21 @@ public class FileParserTest {
     }
 
     @Test
-    public void parsesAPipeDelimitedStringIntoARecordObject() {
+    public void parsesAPipeDelimitedLineIntoARecordObject() {
         Record expected = new Record("Bouillon", "Francis", "G", "M", "Blue", "6-3-1975");
 
         String line = "Bouillon | Francis | G | M | Blue | 6-3-1975";
         Record record = parser.createRecordFrom(line, "\\|");
+
+        assertThat(record, equalTo(expected));
+    }
+
+    @Test
+    public void parsesACommaDelimitedLineIntoARecordObject() {
+        Record expected = new Record("Abercrombie", "Neil", null, "M", "Tan", "2/13/1943");
+
+        String line = "Abercrombie, Neil, Male, Tan, 2/13/1943";
+        Record record = parser.createRecordFrom(line, ",");
 
         assertThat(record, equalTo(expected));
     }
