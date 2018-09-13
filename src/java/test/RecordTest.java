@@ -12,7 +12,7 @@ public class RecordTest {
     @Test
     public void displaysARecordInSpecificFieldOrder() {
         Record record = new Record("Halfelf", "Grace", "L", "F", "white", "1/23/1913");
-        assertThat(record.getForDisplay(), is("Halfelf\t\t|\t\tGrace\t\t|\t\tF\t\t|\t\t1/23/1913\t\t|\t\twhite"));
+        assertThat(record.getForDisplay(), is("Halfelf\t\t\t|\t\tGrace\t\t|\t\tF\t\t|\t\t1/23/1913\t\t|\t\twhite"));
     }
 
     @Test
