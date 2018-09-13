@@ -15,8 +15,14 @@ public class Demo {
             records.addAll(parser.parseFile("resources/space.txt", "\\s"));
 
             RecordDisplayService displayService = new RecordDisplayService();
-            displayService.displayRecordsSortedByDescendingLastName(records, "resources/descendingLastName.txt");
+            System.out.println("===============================================================================================================");
+            System.out.println("------------------------------------------- RAW COMBINED RECORD SET -------------------------------------------");
+            System.out.println("===============================================================================================================");
+            System.out.println(displayService.getRecordReportHeaderLine());
+            System.out.println("===============================================================================================================");
             displayService.displayToConsole(records);
+
+            displayService.displayRecordsSortedByDescendingLastName(records, "resources/descendingLastName.txt");
 
         } catch (IOException e) {
             e.printStackTrace();

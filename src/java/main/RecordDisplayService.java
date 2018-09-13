@@ -5,12 +5,15 @@ import java.util.Set;
  * Created by Tarish Rhees on 8/23/2018.
  */
 public class RecordDisplayService {
+    public String getRecordReportHeaderLine() {
+        return "Last Name\t\t|\t\tFirst Name\t\t|\t\tGender\t\t|\t\tDate of Birth\t\t|\t\tFavorite Color";
+    }
+
     public String getRecordsForDisplay(Set<Record> records) {
-        String result = "Last Name\t\t|\t\tFirst Name\t\t|\t\tGender\t\t|\t\tDate of Birth\t\t|\t\tFavorite Color\n";
+        String result = "";
 
         for (Record record : records) {
-            result += record.getForDisplay();
-            result += "\n";
+            result += record.getForDisplay() + "\n";
         }
 
         return result;
