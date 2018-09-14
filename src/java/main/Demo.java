@@ -23,6 +23,7 @@ public class Demo {
             displayService.displayToConsole(records);
 
             displayService.displayRecordsSortedByDescendingLastName(records, "resources/descendingLastName.txt");
+            displayService.displayRecordsSortedByGenderAndAscendingLastName(records, "resources/genderAndName.txt");
 
         } catch (IOException e) {
             e.printStackTrace();
