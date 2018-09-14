@@ -15,15 +15,10 @@ public class Demo {
             records.addAll(parser.parseFile("resources/space.txt", "\\s"));
 
             RecordDisplayService displayService = new RecordDisplayService();
-            System.out.println("===============================================================================================================");
-            System.out.println("------------------------------------------- RAW COMBINED RECORD SET -------------------------------------------");
-            System.out.println("===============================================================================================================");
-            System.out.println(displayService.getRecordReportHeaderLine());
-            System.out.println("===============================================================================================================");
-            displayService.displayToConsole(records);
+            displayService.displayAsFile(records, "out/unsorted.txt");
 
-            displayService.displayRecordsSortedByDescendingLastName(records, "resources/descendingLastName.txt");
-            displayService.displayRecordsSortedByGenderAndAscendingLastName(records, "resources/genderAndName.txt");
+            displayService.displayRecordsSortedByDescendingLastName(records, "out/descendingLastName.txt");
+            displayService.displayRecordsSortedByGenderAndAscendingLastName(records, "out/genderAndName.txt");
 
         } catch (IOException e) {
             e.printStackTrace();
