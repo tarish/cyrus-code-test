@@ -21,6 +21,7 @@ public class RecordDisplayService {
 
     public File displayAsFile(Set<Record> records, String outputPath) throws IOException {
         PrintWriter output = new PrintWriter(outputPath);
+        output.write(getRecordReportHeaderLine() + "\n");
         output.write(getRecordsForDisplay(records));
         output.close();
         return new File(outputPath);
@@ -34,5 +35,11 @@ public class RecordDisplayService {
         RecordSet recordSet = new RecordSet();
         recordSet.setRecords(records);
         return displayAsFile(recordSet.getRecordsSortedByLastNameDescending(), outputPath);
+    }
+
+    public File displayRecordsSortedByGenderAndAscendingLastName(Set<Record> records, String outputPath) throws IOException {
+        RecordSet recordSet = new RecordSet();
+        recordSet.setRecords(records);
+        return displayAsFile(recordSet.getRecordsSortedByGenderAndThenName(), outputPath);
     }
 }

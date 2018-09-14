@@ -92,4 +92,32 @@ public class RecordSetTest {
         assertThat(iterator.next(), is(rhees));
         assertThat(iterator.next(), is(hoschler));
     }
+
+    @Test
+    public void providesSetOfRecordsSortedByGenderAndThenLastNameAscending() {
+        Record grandma_smith = new Record("Smith", "Lyn", "L", "F", "grey", "02-02");
+        Record grandma_hoschler = new Record("Hoschler", "Louise", "M", "F", "blue", "");
+        Record grandpa_hoschler = new Record("Hoschler", "Dennis", "K", "M", "red", "");
+        Record tarish = new Record("Rhees", "Tarish", "J", "F", "blue", "");
+        Record mike = new Record("Rhees", "Ronald", "M", "M", "white", "");
+
+        Set<Record> records = new HashSet<>();
+        records.add(mike);
+        records.add(tarish);
+        records.add(grandma_hoschler);
+        records.add(grandpa_hoschler);
+        records.add(grandma_smith);
+        recordSet.setRecords(records);
+
+        Set<Record> sortedRecords = recordSet.getRecordsSortedByGenderAndThenName();
+        assertThat(sortedRecords.size(), is(5));
+
+        //NOTE: Order Matters for this test!!! Do not rearrange unless changing requirements!
+        Iterator<Record> iterator = sortedRecords.iterator();
+        assertThat(iterator.next(), is(grandma_hoschler));
+        assertThat(iterator.next(), is(tarish));
+        assertThat(iterator.next(), is(grandma_smith));
+        assertThat(iterator.next(), is(grandpa_hoschler));
+        assertThat(iterator.next(), is(mike));
+    }
 }

@@ -21,9 +21,9 @@ public class RecordSet {
     }
 
     public Set<Record> getRecordsSortedByLastNameAscending() {
-        LastNameComparator nameComparator = new LastNameComparator();
+        LastNameComparator comparator = new LastNameComparator();
         TreeSet<Record> sortedRecords = new TreeSet<>(
-                nameComparator
+                comparator
         );
 
         for (Record record : records) {
@@ -33,11 +33,19 @@ public class RecordSet {
     }
 
     public Set<Record> getRecordsSortedByLastNameDescending() {
-        LastNameComparator nameComparator = new LastNameComparator();
+        LastNameComparator comparator = new LastNameComparator();
         TreeSet<Record> sortedRecords = new TreeSet<>(
-                nameComparator.reversed()
+                comparator.reversed()
         );
+        for (Record record : records) {
+            sortedRecords.add(record);
+        }
+        return sortedRecords;
+    }
 
+    public Set<Record> getRecordsSortedByGenderAndThenName() {
+        GenderAndLastNameComparator comparator = new GenderAndLastNameComparator();
+        TreeSet<Record> sortedRecords = new TreeSet<>(comparator);
         for (Record record : records) {
             sortedRecords.add(record);
         }
