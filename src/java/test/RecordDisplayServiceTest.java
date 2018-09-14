@@ -29,7 +29,7 @@ public class RecordDisplayServiceTest {
     @Test
     public void getsHeaderLineForRecordReport() {
         assertThat(displayService.getRecordReportHeaderLine(),
-                is("Last Name\t\t|\t\tFirst Name\t\t|\t\tGender\t\t|\t\tDate of Birth\t\t|\t\tFavorite Color\n")
+                is("Last Name\t\t|\t\tFirst Name\t\t|\t\tGender\t\t|\t\tDate of Birth\t\t|\t\tFavorite Color")
         );
     }
 
