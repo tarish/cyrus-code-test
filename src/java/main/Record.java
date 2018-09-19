@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  * Created by Tarish Rhees on 8/23/2018.
  */
@@ -7,12 +9,12 @@ public class Record {
     private String middleInitial;
     private String gender;
     private String favoriteColor;
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
     public Record() {
     }
 
-    public Record(String lastName, String firstName, String middleInitial, String gender, String favoriteColor, String dateOfBirth) {
+    public Record(String lastName, String firstName, String middleInitial, String gender, String favoriteColor, Date dateOfBirth) {
         setLastName(lastName);
         setFirstName(firstName);
         setMiddleInitial(middleInitial);
@@ -67,13 +69,13 @@ public class Record {
         this.favoriteColor = favoriteColor.trim();
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        if (dateOfBirth == null) dateOfBirth = "";
-        this.dateOfBirth = dateOfBirth.trim();
+    public void setDateOfBirth(Date dateOfBirth) {
+        if (dateOfBirth == null) dateOfBirth = new Date();
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getForDisplay() {
