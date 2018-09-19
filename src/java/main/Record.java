@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -79,9 +80,10 @@ public class Record {
     }
 
     public String getForDisplay() {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         return String.format("%s\t\t\t|\t\t%s\t\t|\t\t%s\t\t|\t\t%s\t\t|\t\t%s",
                 getLastName(), getFirstName(), getGender(),
-                getDateOfBirth(), getFavoriteColor()
+                formatter.format(getDateOfBirth()), getFavoriteColor()
         );
     }
 

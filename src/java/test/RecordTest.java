@@ -24,7 +24,7 @@ public class RecordTest {
     @Test
     public void displaysARecordInSpecificFieldOrder() {
         Record record = new Record("Halfelf", "Grace", "L", "F", "white", DATE_OF_BIRTH);
-        assertThat(record.getForDisplay(), is("Halfelf\t\t\t|\t\tGrace\t\t|\t\tF\t\t|\t\t" + DATE_OF_BIRTH + "\t\t|\t\twhite"));
+        assertThat(record.getForDisplay(), is("Halfelf\t\t\t|\t\tGrace\t\t|\t\tF\t\t|\t\t01/23/1913\t\t|\t\twhite"));
     }
 
     @Test

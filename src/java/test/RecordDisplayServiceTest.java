@@ -28,7 +28,7 @@ public class RecordDisplayServiceTest {
     public void setUp() throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
-        GRACE_HALFELF = new Record("Halfelf", "Grace", "L", "F", "black", formatter.parse("1/1/1913"));
+        GRACE_HALFELF = new Record("Halfelf", "Grace", "L", "F", "black", formatter.parse("1/23/1913"));
         LUNARIENNE_GNOME = new Record("Gnome", "Lunarienne", "", "F", "white", formatter.parse("5/3/2004"));
         LAMIERINA_WARRIOR = new Record("Warrior", "Lamierina", "S", "F", "red", formatter.parse("8/31/2005"));
 
