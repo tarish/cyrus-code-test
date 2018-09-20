@@ -51,4 +51,13 @@ public class RecordSet {
         }
         return sortedRecords;
     }
+
+    public Set<Record> getRecordsSortedByDateOfBirthAndThenName() {
+        DateOfBirthComparator comparator = new DateOfBirthComparator();
+        TreeSet<Record> sortedRecords = new TreeSet<>(comparator);
+        for (Record record : records) {
+            sortedRecords.add(record);
+        }
+        return sortedRecords;
+    }
 }

@@ -42,4 +42,10 @@ public class RecordDisplayService {
         recordSet.setRecords(records);
         return displayAsFile(recordSet.getRecordsSortedByGenderAndThenName(), outputPath);
     }
+
+    public File displayRecordsSortedByBirthdateAndAscendingLastName(Set<Record> records, String outputPath) throws IOException {
+        RecordSet recordSet = new RecordSet();
+        recordSet.setRecords(records);
+        return displayAsFile(recordSet.getRecordsSortedByDateOfBirthAndThenName(), outputPath);
+    }
 }

@@ -19,6 +19,7 @@ public class Demo {
 
             displayService.displayRecordsSortedByDescendingLastName(records, "out/descendingLastName.txt");
             displayService.displayRecordsSortedByGenderAndAscendingLastName(records, "out/genderAndName.txt");
+            displayService.displayRecordsSortedByBirthdateAndAscendingLastName(records, "out/birthdateAndName.txt");
 
         } catch (IOException e) {
             e.printStackTrace();
